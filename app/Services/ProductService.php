@@ -39,7 +39,7 @@ class ProductService
         $fileName = 'prueba.raw';
         $filePath = Storage::disk('public')->path($fileName);
 
-        $conector = new NetworkPrintConnector('192.168.1.100');
+        $conector = new NetworkPrintConnector(env('PRINTER_IP'), env('PRINTER_PORT'));
         $printer = new Printer($conector);
 
         $printer->setTextSize(4, 4);
